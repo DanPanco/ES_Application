@@ -1,0 +1,134 @@
+/* Diagnostic.css */
+.diagnostic-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Poziționare flexibilă, în partea de sus */
+    padding-top: 20px;  /* Spațiu sus pentru a nu fi lipit de marginea paginii */
+}
+
+.chat-card {
+    width: 600px;  /* Lățime fixă pentru card */
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;  /* Previne largirea card-ului */
+}
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Limitează înălțimea totală a zonei de chat */
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #f9f9f9;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-radius: 16px;
+    background-color: #e0f7fa;
+    color: #333;
+    max-width: 100%;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.message .message-icon {
+    margin-right: 10px;
+    font-size: 16px; /* Aproape egal cu textul */
+    line-height: 1;
+    padding-top: 3px; /* Mică ajustare pentru aliniere */
+}
+
+
+.message.user {
+    background-color: #e0f7fa; /* Message from user */
+    text-align: right;
+}
+
+.message.ai {
+    background-color: #c8e6c9; /* Message from AI */
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.chat-input input {
+    flex: 1 1 auto;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 0;
+}
+
+.chat-input button {
+    flex-shrink: 0;
+    padding: 10px 14px;
+    background-color: #2e7d32;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    transition: all 0.2s ease;
+}
+
+.chat-input button:hover {
+    background-color: #ffffff;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+
+.chat-input button:disabled {
+    background-color: #ccc;
+}
+
+@media (max-width: 600px) {
+    .chat-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .chat-input input,
+    .chat-input button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .chat-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .chat-input input,
+    .chat-input button {
+        width: 100%;
+    }
+}
+
+
+.chat-input button:hover {
+    background-color: #4caf50;
+}
