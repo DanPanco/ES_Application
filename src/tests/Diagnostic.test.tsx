@@ -1,13 +1,12 @@
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import Diagnostic from '../components/Diagnostic';
 
-// Mock pentru scrollIntoView
 Object.defineProperty(HTMLDivElement.prototype, 'scrollIntoView', {
     value: jest.fn(),
     writable: true,
 });
 
-// Simulăm funcția chat din window.puter.ai pe obiectul global
+
 global.window.puter = {
     ai: {
         chat: jest.fn(() => 'Răspuns simulativ'),

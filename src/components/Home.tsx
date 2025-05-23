@@ -112,7 +112,7 @@ export default function Home(){
         <Row
             justify="center"
             align="middle"
-            gutter={[40, 48]} // similar cu column-gap & row-gap
+            gutter={[40, 48]}
             className="intro-section row-container"
         >
             <Col xs={24} md={12} className="intro-text">

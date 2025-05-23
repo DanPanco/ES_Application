@@ -9,11 +9,19 @@ export default function Contact(){
 
     useEffect(() => {
         emailjs.init({
-            publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "rHB531u2LTp5Ov01F",
+            publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
         });
     }, []);
 
     const sendEmail = (values: any) => {
+        const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+        const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+
+        if (!serviceID || !templateID) {
+            message.error("Configurarea EmailJS lipsește (serviceID sau templateID).");
+            return;
+        }
+
         const templateParams = {
             name: values.name,
             email: values.email,
@@ -22,11 +30,7 @@ export default function Contact(){
         };
 
         emailjs
-            .send(
-                process.env.REACT_APP_EMAILJS_SERVICE_ID || "service_gi1s07o",
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_b624jjp",
-                templateParams
-            )
+            .send(serviceID, templateID, templateParams)
             .then(() => {
                 message.success("Mesajul a fost trimis cu succes!");
                 form.resetFields();
